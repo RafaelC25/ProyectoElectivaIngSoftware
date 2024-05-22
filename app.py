@@ -32,7 +32,7 @@ def login():
             account = cur.fetchone()
 
             if account:
-                session['logueado'] = True
+                session['logueado'] = True #asdasdasdasdasdas
                 session['id'] = account['id']
                 return render_template("usuario.html")
             else:
