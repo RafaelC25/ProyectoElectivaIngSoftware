@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import render_template, redirect, request, Response, session
 from flask_mysqldb import MySQLdb, MySQL
-
+#PRUEBA COMENTARIO
 app = Flask(__name__,template_folder='template')
 
 app.config['MYSQL_HOST']='localhost'
@@ -20,6 +20,7 @@ def usuario():
     return render_template('usuario.html')
 
 #FUNCIONES DE LOGIN
+#OTRO COMENTARIO
 @app.route('/acceso-login', methods=["GET","POST"])
 def login():
     if request.method == 'POST':
