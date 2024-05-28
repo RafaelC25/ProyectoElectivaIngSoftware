@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios Interactivos</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .exercise {
+            margin-bottom: 20px;
+        }
+        .exercise h3 {
+            margin-bottom: 10px;
+        }
+        .exercise p {
+            margin-bottom: 5px;
+        }
+        .exercise button {
+            margin-top: 10px;
+        }
+        .feedback {
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- header section start -->
+    <div class="header_section">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+         <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Inicio</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="test.html">Tests</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="Ejercicios Interactivos.html">Ejercicios</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="Informes.html">Informes</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="Recomendaciones.html">Recomendaciones</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href=".html">Iniciar Sesión</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#"><img src="images/search-icon.png"></a>
+               </li>
+            </ul>
+         </div>
+      </nav>
+    <div class="container">
+        <h1>Ejercicios Interactivos para Mejorar la Inteligencia Emocional</h1>
+
+        <!-- EQ-i 2.0 (Inventario de Inteligencia Emocional) -->
+        <div class="exercise" data-difficulty="Fácil" data-focus="Autoexpresión y Autoconciencia Emocional">
+            <h3>EQ-i 2.0: Ejercicios de Mindfulness y Meditación (Fácil)</h3>
+            <p>Realiza el siguiente ejercicio para mejorar tu autoexpresión y autoconciencia emocional:</p>
+            <button class="btn btn-primary start-exercise" data-exercise-id="1">Realizar Ejercicio</button>
+            <div class="feedback" id="feedback-1"></div>
+        </div>
+
+        <div class="exercise" data-difficulty="Intermedio" data-focus="Habilidades Sociales">
+            <h3>EQ-i 2.0: Actividades para Desarrollar Habilidades Sociales (Intermedio)</h3>
+            <p>Participa en grupos de debate o actividades de voluntariado:</p>
+            <button class="btn btn-primary start-exercise" data-exercise-id="2">Realizar Ejercicio</button>
+            <div class="feedback" id="feedback-2"></div>
+        </div>
+
+        <!-- MSCEIT (Test de Inteligencia Emocional Mayer-Salovey-Caruso) -->
+        <div class="exercise" data-difficulty="Intermedio" data-focus="Gestión del Estrés">
+            <h3>MSCEIT: Estrategias para Gestionar el Estrés (Intermedio)</h3>
+            <p>Prueba una estrategia para gestionar el estrés:</p>
+            <button class="btn btn-primary start-exercise" data-exercise-id="3">Realizar Ejercicio</button>
+            <div class="feedback" id="feedback-3"></div>
+        </div>
+
+        <div class="exercise" data-difficulty="Difícil" data-focus="Comprensión Emocional">
+            <h3>MSCEIT: Lecturas Recomendadas sobre Inteligencia Emocional (Difícil)</h3>
+            <p>Lee libros como "Inteligencia Emocional" de Daniel Goleman:</p>
+            <button class="btn btn-primary start-exercise" data-exercise-id="4">Realizar Ejercicio</button>
+            <div class="feedback" id="feedback-4"></div>
+        </div>
+
+        <!-- TEIQue (Cuestionario de Inteligencia Emocional de Trait) -->
+        <div class="exercise" data-difficulty="Fácil" data-focus="Empatía y Comprensión">
+            <h3>TEIQue: Practicar la Empatía y la Comprensión (Fácil)</h3>
+            <p>Dedica tiempo a escuchar activamente a los demás:</p>
+            <button class="btn btn-primary start-exercise" data-exercise-id="5">Realizar Ejercicio</button>
+            <div class="feedback" id="feedback-5"></div>
+        </div>
+
+        <!-- Cuestionario de Inteligencia Emocional Bar-On (EQ-i) -->
+        <div class="exercise" data-difficulty="Intermedio" data-focus="Relaciones Saludables">
+            <h3>Bar-On EQ-i: Cultivar Relaciones Saludables (Intermedio)</h3>
+            <p>Establece límites saludables en tus relaciones:</p>
+            <button class="btn btn-primary start-exercise" data-exercise-id="6">Realizar Ejercicio</button>
+            <div class="feedback" id="feedback-6"></div>
+        </div>
+
+        <div class="exercise" data-difficulty="Difícil" data-focus="Manejo del Estrés y Adaptabilidad">
+            <h3>Bar-On EQ-i: Establecer Metas Realistas (Difícil)</h3>
+            <p>Identifica áreas específicas de tu inteligencia emocional que te gustaría mejorar:</p>
+            <button class="btn btn-primary start-exercise" data-exercise-id="7">Realizar Ejercicio</button>
+            <div class="feedback" id="feedback-7"></div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Funciones de ejercicio para cada prueba
+        function startExercise(id) {
+            let exerciseDescription;
+            switch (id) {
+                case 1:
+                    exerciseDescription = 'Practica la reflexión diaria sobre tus emociones. Mantén un diario emocional donde registres tus sentimientos, pensamientos y experiencias. \n\nDescribe cómo te sientes en este momento:';
+                    break;
+                case 2:
+                    exerciseDescription = 'Participa en un debate o voluntariado. Describe tu experiencia y cómo interactuaste con los demás:';
+                    break;
+                case 3:
+                    exerciseDescription = 'Practica la respiración profunda. \n\nInhala lentamente por la nariz y exhala por la boca durante 5 minutos. Describe cómo te sientes después:';
+                    break;
+                case 4:
+                    exerciseDescription = 'Lee un capítulo de "Inteligencia Emocional" de Daniel Goleman. \n\nDescribe lo que aprendiste y cómo aplicarás esta información:';
+                    break;
+                case 5:
+                    exerciseDescription = 'Haz una lista de personas importantes en tu vida. \n\nEscoge una persona y describe una conversación significativa que tuviste con ella:';
+                    break;
+                case 6:
+                    exerciseDescription = 'Organiza una actividad con amigos o familiares. \n\nDescribe la actividad y cómo fortaleció tus relaciones:';
+                    break;
+                case 7:
+                    exerciseDescription = 'Establece una meta emocional específica. \n\nDescribe tu meta y los pasos que tomarás para alcanzarla:';
+                    break;
+                default:
+                    exerciseDescription = 'Ejercicio no encontrado.';
+            }
+            const userInput = prompt(exerciseDescription);
+            if (userInput !== null) {
+                $(`#feedback-${id}`).html(`Gracias por completar el ejercicio. Aquí está tu respuesta: <strong>${userInput}</strong>`).fadeIn();
+            }
+        }
+
+        $('.start-exercise').click(function() {
+            const exerciseId = $(this).data('exercise-id');
+            startExercise(exerciseId);
+        });
+    </script>
+</body>
+</html>
+
+      
