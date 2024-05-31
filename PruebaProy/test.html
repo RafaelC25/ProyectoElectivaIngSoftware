@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Site Metas -->
+    <title>Health</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Favicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- Owl Carousel Stylesheets -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <!-- jQuery UI (for date picker) -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        .test_section {
+            padding: 50px 0;
+            text-align: center;
+        }
+        .test_button {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .report-section {
+            margin-top: 20px;
+        }
+        .report-section h3 {
+            margin-bottom: 20px;
+        }
+        .header_section {
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        $(function() {
+            $("#start-date, #end-date").datepicker({
+                dateFormat: "dd/mm/yy"
+            });
+
+            $("#generate-report").click(function() {
+                const startDate = $("#start-date").val();
+                const endDate = $("#end-date").val();
+                const patients = $("#patients").val();
+                const dataTypes = $("#data-types").val();
+
+                if (!startDate || !endDate || patients.length === 0 || dataTypes.length === 0) {
+                    alert("Por favor, complete todos los campos para generar el informe.");
+                    return;
+                }
+
+                let reportContent = `
+                    <p><strong>Fecha de Inicio:</strong> ${startDate}</p>
+                    <p><strong>Fecha de Fin:</strong> ${endDate}</p>
+                    <p><strong>Pacientes:</strong> ${patients.join(", ")}</p>
+                    <p><strong>Tipos de Datos:</strong> ${dataTypes.join(", ")}</p>
+                `;
+
+                $("#report-content").html(reportContent);
+                $("#report-section").fadeIn();
+            });
+
+            $("#export-pdf").click(function() {
+                alert("La función de exportación a PDF está en desarrollo.");
+            });
+
+            $("#export-excel").click(function() {
+                alert("La función de exportación a Excel está en desarrollo.");
+            });
+        });
+
+        function showTest(testId) {
+            // Ocultar todas las secciones de pruebas
+            document.querySelectorAll('.test_section').forEach(section => {
+                section.style.display = 'none';
+            });
+            // Mostrar la sección seleccionada
+            document.getElementById(testId).style.display = 'block';
+        }
+
+        function submitEQTest() {
+            let score = 0;
+            const answers = document.querySelectorAll('#eqTestForm input[type="radio"]:checked');
+            answers.forEach(answer => {
+                score += parseInt(answer.value);
+            });
+            document.getElementById('resultsContent').innerHTML = `
+                <h2>Resultados del Test</h2>
+                <p>Tu puntuación de IE es: ${score}</p>
+                <p>Explicación basada en la puntuación obtenida en esta prueba:</p>
+                <div id="generalScore" class="results_content">
+                    <h3>Puntuación General:</h3>
+                    <p>Tu puntuación de IE se clasifica como...</p>
+                </div>
+                <div id="strengths" class="results_content">
+                    <h3>Áreas de Fortaleza:</h3>
+                    <p>Explicación de las áreas en las que destacas.</p>
+                </div>
+                <div id="improvement" class="results_content">
+                    <h3>Áreas de Mejora:</h3>
+                    <p>Explicación de las áreas en las que puedes mejorar.</p>
+                </div>`;
+            document.getElementById('testResults').style.display = 'block';
+            document.getElementById('test2').style.display = 'none';
+        }
+
+        function submitMSCEITTest() {
+            alert("Funcionalidad para enviar la prueba MSCEIT en desarrollo.");
+        }
+
+        function submitTEIQueTest() {
+            alert("Funcionalidad para enviar la prueba TEIQue en desarrollo.");
+        }
+
+        function submitBarOnTest() {
+            alert("Funcionalidad para enviar la prueba Bar-On en desarrollo.");
+        }
+    </script>
+</head>
+<body>
+    <!-- header section start -->
+    <div class="header_section">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+         <div class="logo"><a href="index.html"><img src="images/logo.png" alt="Logo"></a></div>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Inicio</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="test.html">Tests</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="Ejercicios Interactivos.html">Ejercicios</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="Informes.html">Informes</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="Recomendaciones.html">Recomendaciones</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href=".html">Iniciar Sesión</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#"><img src="images/search-icon.png" alt="Buscar"></a>
+               </li>
+            </ul>
+         </div>
+      </nav>
+    </div>
+    <!-- header section end -->
+
+    <!-- Test Selection Section -->
+    <div class="test_selection_section layout_padding">
+        <div class="container">
+            <h1 class="test_selection_title">Elige una Prueba</h1>
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="javascript:void(0);" onclick="showTest('msceitTest')">
+                        <button class="btn btn-primary test_button">Prueba # 1</button>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="javascript:void(0);" onclick="showTest('teiQueTest')">
+                        <button class="btn btn-primary test_button">Prueba # 2</button>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="javascript:void(0);" onclick="showTest('eqiTest')">
+                        <button class="btn btn-primary test_button">Prueba # 3</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Test Selection Section -->
+
+    <!-- MSCEIT Test Section -->
+    <div id="msceitTest" class="test_section layout_padding" style="display:none;">
+        <div class="container">
+            <h1 class="test_title">MSCEIT (Test de Inteligencia Emocional Mayer-Salovey-Caruso)</h1>
+            <form id="msceitTestForm">
+                <div class="form-group">
+                    <label>Pregunta 1: ¿Puedo reconocer mis propias emociones mientras las experimento?</label><br>
+                    <input type="radio" name="q1" value="1"> Totalmente en desacuerdo<br>
+                    <input type="radio" name="q1" value="2"> En desacuerdo<br>
+                    <input type="radio" name="q1" value="3"> Neutral<br>
+                    <input type="radio" name="q1" value="4"> De acuerdo<br>
+                    <input type="radio" name="q1" value="5"> Totalmente de acuerdo<br>
+                </div>
+                <div class="form-group">
+                    <label>Pregunta 2: ¿Puedo controlar mis emociones cuando enfrento situaciones difíciles?</label><br>
+                    <input type="radio" name="q2" value="1"> Totalmente en desacuerdo<br>
+                    <input type="radio" name="q2" value="2"> En desacuerdo<br>
+                    <input type="radio" name="q2" value="3"> Neutral<br>
+                    <input type="radio" name="q2" value="4"> De acuerdo<br>
+                    <input type="radio" name="q2" value="5"> Totalmente de acuerdo<br>
+                </div>
+                <div class="form-group">
+                    <label>Pregunta 3: ¿Puedo identificar las emociones de otras personas observando sus expresiones faciales?</label><br>
+                    <input type="radio" name="q3" value="1"> Totalmente en desacuerdo<br>
+                    <input type="radio" name="q3" value="2"> En desacuerdo<br>
+                    <input type="radio" name="q3" value="3"> Neutral<br>
+                    <input type="radio" name="q3" value="4"> De acuerdo<br>
+                    <input type="radio" name="q3" value="5"> Totalmente de acuerdo<br>
+                </div>
+                <div class="form-group">
+                    <label>Pregunta 4: ¿Puedo motivarme a mí mismo para alcanzar mis metas a pesar de los obstáculos?</label><br>
+                    <input type="radio" name="q4" value="1"> Totalmente en desacuerdo<br>
+                    <input type="radio" name="q4" value="2"> En desacuerdo<br>
+                    <input type="radio" name="q4" value="3"> Neutral<br>
+                    <input type="radio" name="q4" value="4"> De acuerdo<br>
+                    <input type="radio" name="q4" value="5"> Totalmente de acuerdo<br>
+                </div>
+                <div class="form-group">
+                    <label>Pregunta 5: ¿Puedo resolver conflictos de manera efectiva sin dejarme llevar por las emociones?</label><br>
+                    <input type="radio" name="q5" value="1"> Totalmente en desacuerdo<br>
+                    <input type="radio" name="q5" value="2"> En desacuerdo<br>
+                    <input type="radio" name="q5" value="3"> Neutral<br>
+                    <input type="radio" name="q5" value="4"> De acuerdo<br>
+                    <input type="radio" name="q5" value="5"> Totalmente de acuerdo<br>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="submitMSCEITTest()">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- TEIQue Test Section -->
+    <div id="teiQueTest" class="test_section layout_padding" style="display:none;">
+        <div class="container">
+            <h1 class="test_title">TEIQue (Cuestionario de Inteligencia Emocional de Trait)</h1>
+            <form id="teiQueTestForm">
+                <div class="form-group">
+                    <label>Pregunta 1: ¿Puedo reconocer mis propias emociones mientras las experimento?</label><br>
+                    <input type="radio" name="q1" value="1"> Totalmente en desacuerdo<br>
+                    <input type="radio" name="q1" value="2"> En desacuerdo<br>
+                    <input type="radio" name="q1" value="3"> Neutral<br>
+                    <input type="radio" name="q1" value="4"> De acuerdo<br>
+                    <input type="radio" name="q1" value="5"> Totalmente de acuerdo<br>
+                </div>
+                <div class="form-group">
+                    <label>Pregunta 2: ¿Me resulta fácil expresar mis sentimientos a los demás?</label><br>
+                    <input type="radio" name="q2" value="1"> Totalmente en desacuerdo<br>
+                    <input type="radio" name="q2" value="2"> En desacuerdo<br>
+                    <input type="radio" name="q2" value="3"> Neutral<br>
+                    <input type="radio" name="q2" value="4"> De acuerdo<br>
+                    <input type="radio" name="q2" value="5"> Totalmente de acuerdo<br>
+                </div>
+                <div class="form-group">
+                    <label>Pregunta 3: ¿Puedo manejar situaciones estresantes sin perder la calma?</label><br>
+                    <input type="radio" name="q3" value="1"> Totalmente en desacuerdo<br>
+                    <input type="radio" name="q3" value="2"> En desacuerdo<br>
+                    <input type="radio" name="q3" value="3"> Neutral<br>
+                    <input type="radio" name="q3" value="4"> De acuerdo<br>
+                    <input type="radio" name="q3" value="5"> Totalmente de acuerdo<br>
+                </div>
+                <div class="form-group">
+                    <label>Pregunta 4: ¿Tengo una buena comprensión de mis fortalezas y debilidades?</label><br>
+                    <input type="radio" name="q4" value="1"> Totalmente en desacuerdo<br>
+                    <input type="radio" name="q4" value="2"> En desacuerdo<br>
+                    <input type="radio" name="q4" value="3"> Neutral<br>
+                    <input type="radio" name="q4" value="4"> De acuerdo<br>
+                    <input type="radio" name="q4" value="5"> Totalmente de acuerdo<br>
+                </div>
+                <div class="form-group">
+                    <label>Pregunta 5: ¿Soy capaz de influir positivamente en el estado de ánimo de los demás?</label><br>
+                    <input type="radio" name="q5" value="1"> Totalmente en desacuerdo<br>
+                    <input type="radio" name="q5" value="2"> En desacuerdo<br>
+                    <input type="radio" name="q5" value="3"> Neutral<br>
+                    <input type="radio" name="q5" value="4"> De acuerdo<br>
+                    <input type="radio" name="q5" value="5"> Totalmente de acuerdo<br>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="submitTEIQueTest()">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bar-On EQ-i Test Section -->
+    <div id="eqiTest" class="test_section layout_padding" style="display:none;">
+        <div class="container">
+            <h1 class="test_title">Cuestionario de Inteligencia Emocional Bar-On (EQ-i)</h1>
+            <form id="eqiTestForm">
+                <div class="form-group">
+                    <label>Pregunta 1: ¿Puedo reconocer mis propias emociones mientras las experimento?</label><br>
+                    <input type="radio" name="q1" value="1"> Totalmente en desacuerdo<br>
+                    <input type="radio" name="q1" value="2"> En desacuerdo<br>
+                    <input type="radio" name="q1" value="3"> Neutral<br>
+                    <input type="radio" name="q1" value="4"> De acuerdo<br>
+                    <input type="radio" name="q1" value="5"> Totalmente de acuerdo<br>
+                </div>
+                <div class="form-group">
+                    <label>Pregunta 2: ¿Soy capaz de establecer relaciones positivas con otras personas?</label><br>
+                    <input type="radio" name="q2" value="1"> Totalmente en desacuerdo<br>
+                    <input type="radio" name="q2" value="2"> En desacuerdo<br>
+                    <input type="radio" name="q2" value="3"> Neutral<br>
+                    <input type="radio" name="q2" value="4"> De acuerdo<br>
+                    <input type="radio" name="q2" value="5"> Totalmente de acuerdo<br>
+                </div>
+                <div class="form-group">
+                    <label>Pregunta 3: ¿Puedo adaptarme fácilmente a los cambios?</label><br>
+                    <input type="radio" name="q3" value="1"> Totalmente en desacuerdo<br>
+                    <input type="radio" name="q3" value="2"> En desacuerdo<br>
+                    <input type="radio" name="q3" value="3"> Neutral<br>
+                    <input type="radio" name="q3" value="4"> De acuerdo<br>
+                    <input type="radio" name="q3" value="5"> Totalmente de acuerdo<br>
+                </div>
+                <div class="form-group">
+                    <label>Pregunta 4: ¿Puedo manejar el estrés de manera efectiva?</label><br>
+                    <input type="radio" name="q4" value="1"> Totalmente en desacuerdo<br>
+                    <input type="radio" name="q4" value="2"> En desacuerdo<br>
+                    <input type="radio" name="q4" value="3"> Neutral<br>
+                    <input type="radio" name="q4" value="4"> De acuerdo<br>
+                    <input type="radio" name="q4" value="5"> Totalmente de acuerdo<br>
+                </div>
+                <div class="form-group">
+                    <label>Pregunta 5: ¿Me considero una persona generalmente positiva y con buen ánimo?</label><br>
+                    <input type="radio" name="q5" value="1"> Totalmente en desacuerdo<br>
+                    <input type="radio" name="q5" value="2"> En desacuerdo<br>
+                    <input type="radio" name="q5" value="3"> Neutral<br>
+                    <input type="radio" name="q5" value="4"> De acuerdo<br>
+                    <input type="radio" name="q5" value="5"> Totalmente de acuerdo<br>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="submitBarOnTest()">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Test Results Section -->
+    <div id="testResults" class="test_section layout_padding" style="display:none;">
+        <div class="container">
+            <div id="resultsContent"></div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/owl.carousel.js"></script>
+</body>
+</html>
