@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- Site Metas -->
+    <title>Health</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Favicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- Owl Carousel Stylesheets -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <style>
+        .test_section {
+            padding: 50px 0;
+            text-align: center;
+        }
+        .test_button {
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function showTest(testId) {
+            // Ocultar todas las secciones de pruebas
+            document.querySelectorAll('.test_section').forEach(section => {
+                section.style.display = 'none';
+            });
+            // Mostrar la sección seleccionada
+            document.getElementById(testId).style.display = 'block';
+        }
+
+        function submitMSCEITTest() {
+            let score = 0;
+            // Cálculo de la puntuación...
+            // Aquí se calcularía la puntuación del MSCEIT
+
+            // Mostrar los resultados
+            document.getElementById('resultsContent').innerHTML = `
+                <h2>Resultados del Test MSCEIT</h2>
+                <p>Tu puntuación en el MSCEIT es: ${score}</p>
+                <p>Explicación basada en la puntuación obtenida en esta prueba:</p>
+                <div id="generalScore" class="results_content">
+                    <h3>Puntuación General:</h3>
+                    <p>Tu puntuación de IE se clasifica como...</p>
+                </div>
+                <div id="perception" class="results_content">
+                    <h3>Áreas de Percepción Emocional:</h3>
+                    <p>Explicación de las áreas en las que destacas en percepción emocional.</p>
+                </div>
+                <div id="understanding" class="results_content">
+                    <h3>Áreas de Comprensión Emocional:</h3>
+                    <p>Explicación de las áreas en las que destacas en comprensión emocional.</p>
+                </div>
+                <div id="facilitation" class="results_content">
+                    <h3>Áreas de Facilitación Emocional:</h3>
+                    <p>Explicación de las áreas en las que destacas en facilitación emocional.</p>
+                </div>
+                <div id="management" class="results_content">
+                    <h3>Áreas de Gestión Emocional:</h3>
+                    <p>Explicación de las áreas en las que puedes mejorar en la gestión emocional.</p>
+                </div>`;
+            document.getElementById('testResults').style.display = 'block';
+            document.getElementById('msceitTest').style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <!-- Header Section -->
+    <!-- Tu código HTML para el encabezado aquí -->
+    <!-- End Header Section -->
+
+    <!-- Test Selection Section -->
+    <div class="test_selection_section layout_padding">
+        <div class="container">
+            <h1 class="test_selection_title">Elige una Prueba</h1>
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="msceit_test.html">
+                        <button class="btn btn-primary test_button">Prueba de Inteligencia Emocional 1</button>
+                    </a>
+                </div>
+                <!-- Agrega aquí los otros botones de prueba -->
+            </div>
+        </div>
+    </div>
+    <!-- End Test Selection Section -->
+
+    <!-- MSCEIT Test Section -->
+    <div id="msceitTest" class="test_section layout_padding" style="display:none;">
+        <div class="container">
+            <h1 class="test_title">MSCEIT (Test de Inteligencia Emocional Mayer-Salovey-Caruso)</h1>
+            <!-- Formulario del test MSCEIT -->
+            <button type="button" class="btn btn-primary" onclick="submitMSCEITTest()">Enviar</button>
+        </div>
+    </div>
+    <!-- End MSCEIT Test Section -->
+
+    <!-- Test Results Section -->
+    <div id="testResults" class="test_results_section layout_padding" style="display:none;">
+        <div class="container">
+            <!-- Contenido de los resultados -->
+            <div id="resultsContent">
+                <!-- Los resultados se mostrarán aquí -->
+            </div>
+        </div>
+    </div>
+    <!-- End Test Results Section -->
+
+    <!-- Bootstrap JS -->
+    <!-- Tus enlaces a los archivos JavaScript de Bootstrap aquí -->
+</body>
+</html>
