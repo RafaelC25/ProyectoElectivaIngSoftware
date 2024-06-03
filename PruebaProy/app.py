@@ -15,11 +15,27 @@ mysql=MySQL(app)
 def home():
     return render_template('index.html')
 
-@app.route('/usuario')
+@app.route('/usuario.html')
 def usuario():
     return render_template('usuario.html')
 
-#FUNCIONES DE LOGIN
+@app.route('/test.html')
+def test():
+    return render_template('test.html')
+
+@app.route('/Ejercicios_Interactivos.html')
+def ejercicios_interactivos():
+    return render_template('Ejercicios_Interactivos.html')
+
+@app.route('/Informes.html')
+def informes():
+    return render_template('Informes.html')
+
+@app.route('/Recomendaciones.html')
+def recomendaciones():
+    return render_template('Recomendaciones.html')
+
+
 @app.route('/acceso-login', methods=["GET","POST"])
 def login():
     if request.method == 'POST':
@@ -32,7 +48,7 @@ def login():
             account = cur.fetchone()
 
             if account:
-                session['logueado'] = True #asdasdasdasdasdas
+                session['logueado'] = True 
                 session['id'] = account['id']
                 return render_template("usuario.html")
             else:
